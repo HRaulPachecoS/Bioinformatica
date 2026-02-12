@@ -159,4 +159,156 @@ edades
 #cual es el promedio de las edades sin contar el de Beth
 mean(edades[- 2])
 
+#eliminamos la edad de Morty
+y <- edades[-5]
+y
+Ordenados <- y[order(y, decreasing = TRUE)] #Usamos los corchetes para extraer todo los datos con nombres y números
+Ordenados
+
+#¿Hay alguna edad que sea mayor de 75?
+
+any(edades > 75)
+#FALSE
+
+#menor de 12
+any(edades < 12)
+#False
+
+#Entre 12 y 20
+
+any(20 <= edades & edades >= 12)
+#true
+
+#Genera un vector de 10 edades
+
+edades <- c(22, 24, 21, 23, 25, 22, 24, 26, 23, 21)
+
+#Asigna nombres
+nombres <- c("Carlos", "Marta", "luis", "Sofía", "Diego", "Susana", "Laura", "Manuel", "Paulina", "Juan")
+names(edades) <- nombres
+edades
+
+#Encuentra el mínimo,máximo, media, mediana, la desviación estándar, 
+#la longitud del vector y selecciona sólo los elementos impares.
+
+min(edades)
+max(edades)
+mean(edades)
+median(edades)
+sd(edades)
+length(edades)
+
+#elimina el max. y el min. y genera un histograma con el vector resultante
+y <- edades[-c(2,4,6,8,10)]
+EdadesNuevo <- edades[-c(3,7)]
+EdadesNuevo
+hist(EdadesNuevo)
+
+#Crea un vector de caracteres con diez nombres de especies 
+#y asocialo con su número de acceso de NCBI para su genoma en nucleótidos.
+
+accesos_ncbi <- c(
+  "NC_000913.3",  # Escherichia coli
+  "NC_002695.2",  # Bacillus subtilis
+  "NC_004431.1",  # Salmonella enterica
+  "NC_002516.2",  # Mycobacterium tuberculosis
+  "NC_003197.2",  # Streptococcus pneumoniae
+  "NC_000962.3",  # Mycobacterium leprae
+  "NC_002971.4",  # Helicobacter pylori
+  "NC_006273.2",  # Pseudomonas aeruginosa
+  "NC_003210.1",  # Vibrio cholerae
+  "NC_002505.1"   # Staphylococcus aureus
+)
+
+Nombres <- c(
+  "Escherichia_coli",
+  "Bacillus_subtilis",
+  "Salmonella_enterica",
+  "Mycobacterium_tuberculosis",
+  "Streptococcus_pneumoniae",
+  "Mycobacterium_leprae",
+  "Helicobacter_pylori",
+  "Pseudomonas_aeruginosa",
+  "Vibrio_cholerae",
+  "Staphylococcus_aureus"
+)
+
+names(accesos_ncbi) <- Nombres
+accesos_ncbi
+
+
+#Ejercicios
+
+#Genera un vector con el nombre de 10 virus
+virus <- c(
+  "Norovirus",
+  "Rotavirus_A",
+  "Astrovirus",
+  "Adenovirus_F",
+  "Sapovirus",
+  "Enterovirus_71",
+  "Echovirus",
+  "Coxsackievirus_A",
+  "Coxsackievirus_B",
+  "Calicivirus"
+)
+#Asocia esos nombres con su número de acceso en NCBI
+accesos_virus_gi <- c(
+  "NC_001959.2",  # Norovirus GI
+  "NC_001543.1",  # Rotavirus A
+  "NC_002645.1",  # Astrovirus
+  "NC_001612.1",  # Adenovirus F
+  "NC_001846.1",  # Sapovirus
+  "NC_004148.1",  # Enterovirus 71
+  "NC_001422.1",  # Echovirus
+  "NC_001430.1",  # Coxsackievirus A
+  "NC_001472.1",  # Coxsackievirus B
+  "NC_001344.1"   # Calicivirus
+)
+names(accesos_virus_gi)<- virus
+accesos_virus_gi
+
+#Genera otro vector que contega los tamaños en pb y los nombres
+
+tam_genoma <- c(
+  Norovirus = 7500,
+  Rotavirus_A = 18500,
+  Astrovirus = 6800,
+  Adenovirus_F = 36000,
+  Sapovirus = 7700,
+  Enterovirus_71 = 7400,
+  Echovirus = 7500,
+  Coxsackievirus_A = 7400,
+  Coxsackievirus_B = 7400,
+  Calicivirus = 8200
+)
+
+#Determina cuáles son mayores de 300 bp
+tam_genoma[tam_genoma > 300]
+
+#Asocia un subconjunto de vectores que sean mayores (menores a 300 bp) y mayores (mayores a 300 bp)
+
+menores_300 <- tam_genoma[tam_genoma < 300]
+mayores_300 <- tam_genoma[tam_genoma > 300]
+
+menores_300
+mayores_300
+
+
+#Haz un histograma con los tamaños de todos
+
+hist(tam_genoma)
+
+#Dibuja un boxplot con los tamaños de todos.
+#Pon en el eje los nombres de todos.
+
+boxplot(
+  tam_genoma,
+  main = "Boxplot del tamaño de genomas virales",
+  ylab = "Tamaño del genoma (pb)",
+  las = 2
+)
+#No se podría poner el nombre de todos porque el boxplot genera una sola caja
+
+
 
