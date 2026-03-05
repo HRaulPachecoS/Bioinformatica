@@ -84,7 +84,7 @@ any(duplicated(x))
 x <- rep(3, 5)
 all(x == x[1])
 
-#Escribe una función que tome dos vectores y que devuelca TRUE
+#Escribe una función que tome dos vectores y que devuelva TRUE
 #si ambos vectores tienen algún elemento en común, utilizando la función any()
 
 x <- c(5,6,7)
